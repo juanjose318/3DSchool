@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <title>Virtuele Campus</title>
+    <link rel="stylesheet" href="css/main.css">
+    <script src="https://aframe.io/releases/0.8.0/aframe.min.js"></script>
+    <script src="js/main.js"></script> 
+</head>
+ 
+<body>
+    <a-scene view-room>
+        <!-- Assets -->
+        <a-assets>
+            <img id="ground" src="assets/floortexture.png">
+            <img id="wall" src="assets/walltexture.png">
+        </a-assets>
+        
+        <!-- Entrance -->
+        <a-entity position="0 0 0" visible="true" id="room">
+
+            <!-- Walls -->
+            <a-plane src="#wall" side="double" position="0 2 -22.5" height="15" width="25"></a-plane>
+            <a-plane src="#wall" side="double" position="0 2 2.5" height="15" width="25" rotation="0 180 0"></a-plane>
+            <a-plane src="#wall" side="double" position="12.5 2 -10" height="15" width="25" rotation="0 -90 0"></a-plane>
+            <a-plane src="#wall" side="double" position="-12.5 2 -10" height="15" width="25" rotation="0 90 0"></a-plane>
+        
+            <!-- Ground and ceiling -->   
+            <a-plane src="#ground" side="double" position="0 -5 -10" height="25" width="25" rotation="-90 0 0"></a-plane>
+            <a-plane src="#wall" side="double" position="0 9 -10" height="25" width="25" rotation="90 0 0"></a-plane>
+
+        </a-entity>
+
+        <!-- Camera + cursor. -->
+        <a-entity camera look-controls wasd-controls>
+            <a-cursor id="cursor"></a-cursor>
+        </a-entity>
+    </a-scene>    
+</body>
+</html>
